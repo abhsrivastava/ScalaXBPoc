@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.hotelrewards.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.hotelrewards.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.hotelrewards.com/webservices/">
+      <s:element name="DateTimeOnServer">
+        <s:complexType />
+      </s:element>
+      <s:element name="DateTimeOnServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DateTimeOnServerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlatinumRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="astrXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="astrError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlatinumRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PlatinumRequestResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="astrXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="astrError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlatinumRequest2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TRANSACTION_XML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlatinumRequest2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlatinumRequest2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DateTimeOnServerSoapIn">
+    <wsdl:part name="parameters" element="tns:DateTimeOnServer" />
+  </wsdl:message>
+  <wsdl:message name="DateTimeOnServerSoapOut">
+    <wsdl:part name="parameters" element="tns:DateTimeOnServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PlatinumRequest" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PlatinumRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2SoapIn">
+    <wsdl:part name="parameters" element="tns:PlatinumRequest2" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2SoapOut">
+    <wsdl:part name="parameters" element="tns:PlatinumRequest2Response" />
+  </wsdl:message>
+  <wsdl:message name="DateTimeOnServerHttpGetIn" />
+  <wsdl:message name="DateTimeOnServerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2HttpGetIn">
+    <wsdl:part name="TRANSACTION_XML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DateTimeOnServerHttpPostIn" />
+  <wsdl:message name="DateTimeOnServerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2HttpPostIn">
+    <wsdl:part name="TRANSACTION_XML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlatinumRequest2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="PlatinumWebServiceSoap">
+    <wsdl:operation name="DateTimeOnServer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the Date and Timestamp on the Server</wsdl:documentation>
+      <wsdl:input message="tns:DateTimeOnServerSoapIn" />
+      <wsdl:output message="tns:DateTimeOnServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process Platinum Request</wsdl:documentation>
+      <wsdl:input message="tns:PlatinumRequestSoapIn" />
+      <wsdl:output message="tns:PlatinumRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process Platinum Request (GET)</wsdl:documentation>
+      <wsdl:input message="tns:PlatinumRequest2SoapIn" />
+      <wsdl:output message="tns:PlatinumRequest2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PlatinumWebServiceHttpGet">
+    <wsdl:operation name="DateTimeOnServer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the Date and Timestamp on the Server</wsdl:documentation>
+      <wsdl:input message="tns:DateTimeOnServerHttpGetIn" />
+      <wsdl:output message="tns:DateTimeOnServerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process Platinum Request (GET)</wsdl:documentation>
+      <wsdl:input message="tns:PlatinumRequest2HttpGetIn" />
+      <wsdl:output message="tns:PlatinumRequest2HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PlatinumWebServiceHttpPost">
+    <wsdl:operation name="DateTimeOnServer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the Date and Timestamp on the Server</wsdl:documentation>
+      <wsdl:input message="tns:DateTimeOnServerHttpPostIn" />
+      <wsdl:output message="tns:DateTimeOnServerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process Platinum Request (GET)</wsdl:documentation>
+      <wsdl:input message="tns:PlatinumRequest2HttpPostIn" />
+      <wsdl:output message="tns:PlatinumRequest2HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PlatinumWebServiceSoap" type="tns:PlatinumWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DateTimeOnServer">
+      <soap:operation soapAction="http://www.hotelrewards.com/webservices/DateTimeOnServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest">
+      <soap:operation soapAction="http://www.hotelrewards.com/webservices/PlatinumRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <soap:operation soapAction="http://www.hotelrewards.com/webservices/PlatinumRequest2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PlatinumWebServiceSoap12" type="tns:PlatinumWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DateTimeOnServer">
+      <soap12:operation soapAction="http://www.hotelrewards.com/webservices/DateTimeOnServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest">
+      <soap12:operation soapAction="http://www.hotelrewards.com/webservices/PlatinumRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <soap12:operation soapAction="http://www.hotelrewards.com/webservices/PlatinumRequest2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PlatinumWebServiceHttpGet" type="tns:PlatinumWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DateTimeOnServer">
+      <http:operation location="/DateTimeOnServer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <http:operation location="/PlatinumRequest2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PlatinumWebServiceHttpPost" type="tns:PlatinumWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DateTimeOnServer">
+      <http:operation location="/DateTimeOnServer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlatinumRequest2">
+      <http:operation location="/PlatinumRequest2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlatinumWebService">
+    <wsdl:port name="PlatinumWebServiceSoap" binding="tns:PlatinumWebServiceSoap">
+      <soap:address location="http://exeter.epsilon.com/mercurywebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PlatinumWebServiceSoap12" binding="tns:PlatinumWebServiceSoap12">
+      <soap12:address location="http://exeter.epsilon.com/mercurywebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PlatinumWebServiceHttpGet" binding="tns:PlatinumWebServiceHttpGet">
+      <http:address location="http://exeter.epsilon.com/mercurywebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PlatinumWebServiceHttpPost" binding="tns:PlatinumWebServiceHttpPost">
+      <http:address location="http://exeter.epsilon.com/mercurywebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
