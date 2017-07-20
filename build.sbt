@@ -1,4 +1,4 @@
-val dispatchVersion = "0.11.3"
+val dispatchVersion = "0.12.0"
 
 lazy val myproject = (project in file("."))
    .enablePlugins(ScalaxbPlugin)
@@ -7,9 +7,9 @@ lazy val myproject = (project in file("."))
       version := "1.0",
       scalaVersion := "2.11.8",
       libraryDependencies ++= Seq(
-         "org.scala-lang" % "scala-xml" % "2.11.0-M4",
-         "org.scala-lang" % "scala-parser-combinators" % "2.11.0-M4",
-         "net.databinder.dispatch" % "dispatch-core_2.11" % dispatchVersion
+         "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
+         "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.6",
+         "net.databinder.dispatch" %% "dispatch-core" % dispatchVersion
       ),
       scalaxbDispatchVersion in (Compile, scalaxb) := dispatchVersion,
       scalaxbPackageName in (Compile, scalaxb) := "com.abhi.hotelrewards.service",
