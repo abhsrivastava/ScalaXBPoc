@@ -229,16 +229,16 @@
   </wsdl:binding>
   <wsdl:service name="PlatinumWebService">
     <wsdl:port name="PlatinumWebServiceSoap" binding="tns:PlatinumWebServiceSoap">
-      <soap:address location="http://peter.jupiter.com/mercurywebservice.asmx" />
+      <soap:address location="http://peter.jupiter.com/platinumwebservice.asmx" />
     </wsdl:port>
     <wsdl:port name="PlatinumWebServiceSoap12" binding="tns:PlatinumWebServiceSoap12">
-      <soap12:address location="http://peter.jupiter.com/mercurywebservice.asmx" />
+      <soap12:address location="http://peter.jupiter.com/platinumwebservice.asmx" />
     </wsdl:port>
     <wsdl:port name="PlatinumWebServiceHttpGet" binding="tns:PlatinumWebServiceHttpGet">
-      <http:address location="http://peter.jupiter.com/mercurywebservice.asmx" />
+      <http:address location="http://peter.jupiter.com/platinumwebservice.asmx" />
     </wsdl:port>
     <wsdl:port name="PlatinumWebServiceHttpPost" binding="tns:PlatinumWebServiceHttpPost">
-      <http:address location="http://peter.jupiter.com/mercurywebservice.asmx" />
+      <http:address location="http://peter.jupiter.com/platinumwebservice.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
